@@ -1,0 +1,14 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    - sort_pub_dependencies
+
+analyzer:
+  errors:
+    parameter_assignments: error
+    must_be_immutable: error
+    sort_unnamed_constructors_first: ignore
+    non_constant_identifier_names: ignore
+    sort_pub_dependencies: ignore
+    sort_child_properties_last: ignore
