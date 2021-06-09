@@ -211,4 +211,51 @@ class Style {
     fontSize: 17,
     letterSpacing: 0.43,
   );
+
+  static const subscriptionBackgroundDecoration = BoxDecoration(
+    image: DecorationImage(
+      image: AssetImage("assets/images/background.png"),
+      fit: BoxFit.cover,
+    ),
+  );
+
+  static const subscriptionRestoreStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    letterSpacing: 0.41,
+    color: Colors.white,
+  );
+
+  static const subscriptionSpeedTestStyle = TextStyle(
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w600,
+    fontSize: 28,
+    letterSpacing: 0.43,
+    color: Color.fromRGBO(250, 250, 250, 1),
+  );
+
+  static const subscriptionListItemStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w500,
+    fontSize: 17,
+    letterSpacing: 0.43,
+    color: Color.fromRGBO(250, 250, 250, 1),
+  );
+
+  static const subscriptionFreeUnlimiteStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    letterSpacing: 0.41,
+    color: Color.fromRGBO(250, 250, 250, 1),
+  );
+
+  static const subscriptionPrivacyStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    letterSpacing: 0.41,
+    color: Color.fromRGBO(74, 89, 103, 1),
+  );
 }
