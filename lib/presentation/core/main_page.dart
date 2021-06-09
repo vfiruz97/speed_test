@@ -5,12 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:speed_test/application/notification/notification_bloc.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
 import 'package:speed_test/application/page_navigation/pages_name.dart';
+import 'package:speed_test/application/rate/rate_bloc.dart';
 import 'package:speed_test/application/test_speed/test_speed_bloc.dart';
 import 'package:speed_test/domain/speed/speed.dart';
 import 'package:speed_test/infrastructure/speed/speed_repository.dart';
 import 'package:speed_test/presentation/core/functions/app_bar.dart';
 import 'package:speed_test/presentation/core/functions/bottom_navigation_bar.dart';
 import 'package:speed_test/presentation/core/widgets/notification_dialog_widget.dart';
+import 'package:speed_test/presentation/core/widgets/rate_dialog_widget.dart';
 import 'package:speed_test/presentation/core/widgets/start_button_widget.dart';
 import 'package:speed_test/presentation/history/history_page.dart';
 import 'package:speed_test/presentation/history/history_show/history_show_page.dart';
@@ -23,30 +25,48 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: BlocListener<NotificationBloc, NotificationState>(
-        listenWhen: (c, p) => c.message != p.message,
-        listener: (context, state) async {
-          if (state.message.isNotEmpty) {
-            final List<Map<String, bool>> result = await showDialog(
-              context: context,
-              builder: (context) {
-                return NotificationDialogWidget(
-                  title: "Notification",
-                  message: state.message,
+      body: MultiBlocListener(
+        listeners: [
+          BlocListener<NotificationBloc, NotificationState>(
+            listenWhen: (c, p) => c.message != p.message,
+            listener: (context, state) async {
+              if (state.message.isNotEmpty) {
+                final List<Map<String, bool>> result = await showDialog(
+                  context: context,
+                  builder: (context) {
+                    return NotificationDialogWidget(
+                      title: "Notification",
+                      message: state.message,
+                    );
+                  },
                 );
-              },
-            );
-            if (result[0]["pressedYes"]) {
-              Future.delayed(
-                const Duration(seconds: 1),
-                () => BlocProvider.of<PageNavigationBloc>(context).add(
-                  const PageNavigationEvent.changedCurrentPage(
-                      newCurrentPage: PageName.startPage),
-                ),
+                if (result[0]["pressedYes"]) {
+                  Future.delayed(
+                    const Duration(seconds: 1),
+                    () => BlocProvider.of<PageNavigationBloc>(context).add(
+                      const PageNavigationEvent.changedCurrentPage(
+                          newCurrentPage: PageName.startPage),
+                    ),
+                  );
+                }
+              }
+            },
+          ),
+          BlocListener<RateBloc, RateState>(
+            listenWhen: (p, c) => p.showRateDialog != c.showRateDialog,
+            listener: (context, state) async {
+              await showDialog(
+                context: context,
+                builder: (context) {
+                  return const RateDialogWidget(
+                    title: "Enjoing Speed Testing",
+                    message: "Tap a star to rate it on the App Store.",
+                  );
+                },
               );
-            }
-          }
-        },
+            },
+          ),
+        ],
         child: BlocBuilder<PageNavigationBloc, PageNavigationState>(
           builder: (context, state) {
             switch (state.currentPageName) {

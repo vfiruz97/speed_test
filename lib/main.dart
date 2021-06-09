@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:speed_test/application/notification/notification_bloc.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
+import 'package:speed_test/application/rate/rate_bloc.dart';
 import 'package:speed_test/presentation/core/main_page.dart';
 
 void main() {
@@ -26,6 +27,10 @@ class SpeedTestApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => PageNavigationBloc()),
           BlocProvider(create: (context) => NotificationBloc()),
+          BlocProvider(
+            create: (context) =>
+                RateBloc()..add(const RateEvent.showRateDialog()),
+          ),
         ],
         child: MainPage(),
       ),
