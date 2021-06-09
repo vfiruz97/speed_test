@@ -15,9 +15,13 @@ class _$PageNavigationEventTearOff {
 
 // ignore: unused_element
   _PageNavigationEvent changedCurrentPage(
-      {PageName newCurrentPage = PageName.startPage}) {
+      {PageName newCurrentPage = PageName.startPage,
+      int newCurrentBottomNavigationIndex = 0,
+      dynamic data = 0}) {
     return _PageNavigationEvent(
       newCurrentPage: newCurrentPage,
+      newCurrentBottomNavigationIndex: newCurrentBottomNavigationIndex,
+      data: data,
     );
   }
 }
@@ -29,14 +33,19 @@ const $PageNavigationEvent = _$PageNavigationEventTearOff();
 /// @nodoc
 mixin _$PageNavigationEvent {
   PageName get newCurrentPage;
+  int get newCurrentBottomNavigationIndex;
+  dynamic get data;
 
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changedCurrentPage(PageName newCurrentPage),
+    @required
+        TResult changedCurrentPage(PageName newCurrentPage,
+            int newCurrentBottomNavigationIndex, dynamic data),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changedCurrentPage(PageName newCurrentPage),
+    TResult changedCurrentPage(PageName newCurrentPage,
+        int newCurrentBottomNavigationIndex, dynamic data),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -58,7 +67,10 @@ abstract class $PageNavigationEventCopyWith<$Res> {
   factory $PageNavigationEventCopyWith(
           PageNavigationEvent value, $Res Function(PageNavigationEvent) then) =
       _$PageNavigationEventCopyWithImpl<$Res>;
-  $Res call({PageName newCurrentPage});
+  $Res call(
+      {PageName newCurrentPage,
+      int newCurrentBottomNavigationIndex,
+      dynamic data});
 }
 
 /// @nodoc
@@ -73,11 +85,18 @@ class _$PageNavigationEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object newCurrentPage = freezed,
+    Object newCurrentBottomNavigationIndex = freezed,
+    Object data = freezed,
   }) {
     return _then(_value.copyWith(
       newCurrentPage: newCurrentPage == freezed
           ? _value.newCurrentPage
           : newCurrentPage as PageName,
+      newCurrentBottomNavigationIndex:
+          newCurrentBottomNavigationIndex == freezed
+              ? _value.newCurrentBottomNavigationIndex
+              : newCurrentBottomNavigationIndex as int,
+      data: data == freezed ? _value.data : data as dynamic,
     ));
   }
 }
@@ -89,7 +108,10 @@ abstract class _$PageNavigationEventCopyWith<$Res>
           $Res Function(_PageNavigationEvent) then) =
       __$PageNavigationEventCopyWithImpl<$Res>;
   @override
-  $Res call({PageName newCurrentPage});
+  $Res call(
+      {PageName newCurrentPage,
+      int newCurrentBottomNavigationIndex,
+      dynamic data});
 }
 
 /// @nodoc
@@ -106,27 +128,45 @@ class __$PageNavigationEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object newCurrentPage = freezed,
+    Object newCurrentBottomNavigationIndex = freezed,
+    Object data = freezed,
   }) {
     return _then(_PageNavigationEvent(
       newCurrentPage: newCurrentPage == freezed
           ? _value.newCurrentPage
           : newCurrentPage as PageName,
+      newCurrentBottomNavigationIndex:
+          newCurrentBottomNavigationIndex == freezed
+              ? _value.newCurrentBottomNavigationIndex
+              : newCurrentBottomNavigationIndex as int,
+      data: data == freezed ? _value.data : data as dynamic,
     ));
   }
 }
 
 /// @nodoc
 class _$_PageNavigationEvent implements _PageNavigationEvent {
-  const _$_PageNavigationEvent({this.newCurrentPage = PageName.startPage})
-      : assert(newCurrentPage != null);
+  const _$_PageNavigationEvent(
+      {this.newCurrentPage = PageName.startPage,
+      this.newCurrentBottomNavigationIndex = 0,
+      this.data = 0})
+      : assert(newCurrentPage != null),
+        assert(newCurrentBottomNavigationIndex != null),
+        assert(data != null);
 
   @JsonKey(defaultValue: PageName.startPage)
   @override
   final PageName newCurrentPage;
+  @JsonKey(defaultValue: 0)
+  @override
+  final int newCurrentBottomNavigationIndex;
+  @JsonKey(defaultValue: 0)
+  @override
+  final dynamic data;
 
   @override
   String toString() {
-    return 'PageNavigationEvent.changedCurrentPage(newCurrentPage: $newCurrentPage)';
+    return 'PageNavigationEvent.changedCurrentPage(newCurrentPage: $newCurrentPage, newCurrentBottomNavigationIndex: $newCurrentBottomNavigationIndex, data: $data)';
   }
 
   @override
@@ -135,13 +175,22 @@ class _$_PageNavigationEvent implements _PageNavigationEvent {
         (other is _PageNavigationEvent &&
             (identical(other.newCurrentPage, newCurrentPage) ||
                 const DeepCollectionEquality()
-                    .equals(other.newCurrentPage, newCurrentPage)));
+                    .equals(other.newCurrentPage, newCurrentPage)) &&
+            (identical(other.newCurrentBottomNavigationIndex,
+                    newCurrentBottomNavigationIndex) ||
+                const DeepCollectionEquality().equals(
+                    other.newCurrentBottomNavigationIndex,
+                    newCurrentBottomNavigationIndex)) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(newCurrentPage);
+      const DeepCollectionEquality().hash(newCurrentPage) ^
+      const DeepCollectionEquality().hash(newCurrentBottomNavigationIndex) ^
+      const DeepCollectionEquality().hash(data);
 
   @JsonKey(ignore: true)
   @override
@@ -152,21 +201,26 @@ class _$_PageNavigationEvent implements _PageNavigationEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changedCurrentPage(PageName newCurrentPage),
+    @required
+        TResult changedCurrentPage(PageName newCurrentPage,
+            int newCurrentBottomNavigationIndex, dynamic data),
   }) {
     assert(changedCurrentPage != null);
-    return changedCurrentPage(newCurrentPage);
+    return changedCurrentPage(
+        newCurrentPage, newCurrentBottomNavigationIndex, data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changedCurrentPage(PageName newCurrentPage),
+    TResult changedCurrentPage(PageName newCurrentPage,
+        int newCurrentBottomNavigationIndex, dynamic data),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (changedCurrentPage != null) {
-      return changedCurrentPage(newCurrentPage);
+      return changedCurrentPage(
+          newCurrentPage, newCurrentBottomNavigationIndex, data);
     }
     return orElse();
   }
@@ -195,11 +249,17 @@ class _$_PageNavigationEvent implements _PageNavigationEvent {
 }
 
 abstract class _PageNavigationEvent implements PageNavigationEvent {
-  const factory _PageNavigationEvent({PageName newCurrentPage}) =
-      _$_PageNavigationEvent;
+  const factory _PageNavigationEvent(
+      {PageName newCurrentPage,
+      int newCurrentBottomNavigationIndex,
+      dynamic data}) = _$_PageNavigationEvent;
 
   @override
   PageName get newCurrentPage;
+  @override
+  int get newCurrentBottomNavigationIndex;
+  @override
+  dynamic get data;
   @override
   @JsonKey(ignore: true)
   _$PageNavigationEventCopyWith<_PageNavigationEvent> get copyWith;
@@ -210,9 +270,14 @@ class _$PageNavigationStateTearOff {
   const _$PageNavigationStateTearOff();
 
 // ignore: unused_element
-  _PageNavigationState call({PageName currentPageName = null}) {
+  _PageNavigationState call(
+      {PageName currentPageName = null,
+      int currentBottomNavigationIndex = 1,
+      dynamic data = 0}) {
     return _PageNavigationState(
       currentPageName: currentPageName,
+      currentBottomNavigationIndex: currentBottomNavigationIndex,
+      data: data,
     );
   }
 }
@@ -224,6 +289,8 @@ const $PageNavigationState = _$PageNavigationStateTearOff();
 /// @nodoc
 mixin _$PageNavigationState {
   PageName get currentPageName;
+  int get currentBottomNavigationIndex;
+  dynamic get data;
 
   @JsonKey(ignore: true)
   $PageNavigationStateCopyWith<PageNavigationState> get copyWith;
@@ -234,7 +301,10 @@ abstract class $PageNavigationStateCopyWith<$Res> {
   factory $PageNavigationStateCopyWith(
           PageNavigationState value, $Res Function(PageNavigationState) then) =
       _$PageNavigationStateCopyWithImpl<$Res>;
-  $Res call({PageName currentPageName});
+  $Res call(
+      {PageName currentPageName,
+      int currentBottomNavigationIndex,
+      dynamic data});
 }
 
 /// @nodoc
@@ -249,11 +319,17 @@ class _$PageNavigationStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object currentPageName = freezed,
+    Object currentBottomNavigationIndex = freezed,
+    Object data = freezed,
   }) {
     return _then(_value.copyWith(
       currentPageName: currentPageName == freezed
           ? _value.currentPageName
           : currentPageName as PageName,
+      currentBottomNavigationIndex: currentBottomNavigationIndex == freezed
+          ? _value.currentBottomNavigationIndex
+          : currentBottomNavigationIndex as int,
+      data: data == freezed ? _value.data : data as dynamic,
     ));
   }
 }
@@ -265,7 +341,10 @@ abstract class _$PageNavigationStateCopyWith<$Res>
           $Res Function(_PageNavigationState) then) =
       __$PageNavigationStateCopyWithImpl<$Res>;
   @override
-  $Res call({PageName currentPageName});
+  $Res call(
+      {PageName currentPageName,
+      int currentBottomNavigationIndex,
+      dynamic data});
 }
 
 /// @nodoc
@@ -282,27 +361,44 @@ class __$PageNavigationStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object currentPageName = freezed,
+    Object currentBottomNavigationIndex = freezed,
+    Object data = freezed,
   }) {
     return _then(_PageNavigationState(
       currentPageName: currentPageName == freezed
           ? _value.currentPageName
           : currentPageName as PageName,
+      currentBottomNavigationIndex: currentBottomNavigationIndex == freezed
+          ? _value.currentBottomNavigationIndex
+          : currentBottomNavigationIndex as int,
+      data: data == freezed ? _value.data : data as dynamic,
     ));
   }
 }
 
 /// @nodoc
 class _$_PageNavigationState implements _PageNavigationState {
-  const _$_PageNavigationState({this.currentPageName = null})
-      : assert(currentPageName != null);
+  const _$_PageNavigationState(
+      {this.currentPageName = null,
+      this.currentBottomNavigationIndex = 1,
+      this.data = 0})
+      : assert(currentPageName != null),
+        assert(currentBottomNavigationIndex != null),
+        assert(data != null);
 
   @JsonKey(defaultValue: null)
   @override
   final PageName currentPageName;
+  @JsonKey(defaultValue: 1)
+  @override
+  final int currentBottomNavigationIndex;
+  @JsonKey(defaultValue: 0)
+  @override
+  final dynamic data;
 
   @override
   String toString() {
-    return 'PageNavigationState(currentPageName: $currentPageName)';
+    return 'PageNavigationState(currentPageName: $currentPageName, currentBottomNavigationIndex: $currentBottomNavigationIndex, data: $data)';
   }
 
   @override
@@ -311,13 +407,22 @@ class _$_PageNavigationState implements _PageNavigationState {
         (other is _PageNavigationState &&
             (identical(other.currentPageName, currentPageName) ||
                 const DeepCollectionEquality()
-                    .equals(other.currentPageName, currentPageName)));
+                    .equals(other.currentPageName, currentPageName)) &&
+            (identical(other.currentBottomNavigationIndex,
+                    currentBottomNavigationIndex) ||
+                const DeepCollectionEquality().equals(
+                    other.currentBottomNavigationIndex,
+                    currentBottomNavigationIndex)) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(currentPageName);
+      const DeepCollectionEquality().hash(currentPageName) ^
+      const DeepCollectionEquality().hash(currentBottomNavigationIndex) ^
+      const DeepCollectionEquality().hash(data);
 
   @JsonKey(ignore: true)
   @override
@@ -327,11 +432,17 @@ class _$_PageNavigationState implements _PageNavigationState {
 }
 
 abstract class _PageNavigationState implements PageNavigationState {
-  const factory _PageNavigationState({PageName currentPageName}) =
-      _$_PageNavigationState;
+  const factory _PageNavigationState(
+      {PageName currentPageName,
+      int currentBottomNavigationIndex,
+      dynamic data}) = _$_PageNavigationState;
 
   @override
   PageName get currentPageName;
+  @override
+  int get currentBottomNavigationIndex;
+  @override
+  dynamic get data;
   @override
   @JsonKey(ignore: true)
   _$PageNavigationStateCopyWith<_PageNavigationState> get copyWith;

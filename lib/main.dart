@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:speed_test/application/notification/notification_bloc.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
 import 'package:speed_test/presentation/core/main_page.dart';
 
@@ -21,8 +22,11 @@ class SpeedTestApp extends StatelessWidget {
           appBarTheme: AppBarTheme.of(context).copyWith(
             backgroundColor: Colors.black,
           )),
-      home: BlocProvider(
-        create: (context) => PageNavigationBloc(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => PageNavigationBloc()),
+          BlocProvider(create: (context) => NotificationBloc()),
+        ],
         child: MainPage(),
       ),
     );

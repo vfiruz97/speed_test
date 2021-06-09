@@ -18,7 +18,11 @@ class PageNavigationBloc
     PageNavigationEvent event,
   ) async* {
     yield* event.map(changedCurrentPage: (e) async* {
-      yield state.copyWith(currentPageName: e.newCurrentPage);
+      yield state.copyWith(
+        currentPageName: e.newCurrentPage,
+        currentBottomNavigationIndex: e.newCurrentBottomNavigationIndex,
+        data: e.data,
+      );
     });
   }
 }

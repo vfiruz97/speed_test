@@ -1,21 +1,45 @@
 PODS:
+  - device_info_plus (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - internet_speed_test (0.0.1):
     - Flutter
+  - network_info_plus (0.0.1):
+    - Flutter
+  - path_provider (0.0.1):
+    - Flutter
+  - share (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - internet_speed_test (from `.symlinks/plugins/internet_speed_test/ios`)
+  - network_info_plus (from `.symlinks/plugins/network_info_plus/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - share (from `.symlinks/plugins/share/ios`)
 
 EXTERNAL SOURCES:
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
   internet_speed_test:
     :path: ".symlinks/plugins/internet_speed_test/ios"
+  network_info_plus:
+    :path: ".symlinks/plugins/network_info_plus/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  share:
+    :path: ".symlinks/plugins/share/ios"
 
 SPEC CHECKSUMS:
+  device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   internet_speed_test: ab8c9ed9b7b4747c8ebd3f549bdbfa778655fd68
+  network_info_plus: b78876159360f5580608c2cea620d6ceffabd0ad
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  share: 0b2c3e82132f5888bccca3351c504d0003b3b410
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 

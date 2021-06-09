@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Style {
+  const Style();
+
   static const appBarTitleStyle = TextStyle(
     fontFamily: 'SF Pro Text',
     fontWeight: FontWeight.w600,
@@ -110,5 +112,103 @@ class Style {
     fontWeight: FontWeight.w400,
     fontSize: 15,
     letterSpacing: 0.23,
+  );
+
+  static const dialogBoxDecoration = BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: Color.fromRGBO(84, 84, 88, 0.65),
+        width: 0.5,
+      ),
+    ),
+  );
+
+  static const dialogTitleStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w600,
+    fontSize: 17,
+    letterSpacing: 0.43,
+  );
+
+  static const dialogMessageStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontSize: 13,
+    letterSpacing: 0.08,
+    color: Color.fromRGBO(250, 250, 250, 1),
+  );
+
+  static const dialogButtonStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontSize: 17,
+    letterSpacing: 0.43,
+    color: Color.fromRGBO(79, 176, 167, 1),
+  );
+
+  static const dialogSrightWallDecoration = BoxDecoration(
+    border: Border(
+      left: BorderSide(
+        color: Color.fromRGBO(84, 84, 88, 0.65),
+        width: 0.5,
+      ),
+    ),
+  );
+
+  static const historyCardHeaderStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontSize: 13,
+    letterSpacing: 0.08,
+    color: Color.fromRGBO(74, 89, 103, 1),
+  );
+
+  static const historyCardBodyStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontSize: 17,
+    letterSpacing: 0.43,
+  );
+
+  static const historyCardFooterStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontSize: 13,
+    wordSpacing: 0.08,
+    color: Color.fromRGBO(74, 89, 103, 1),
+  );
+
+  static final eigthBorderRadiusDecoration = BoxDecoration(
+    borderRadius: BorderRadius.circular(8),
+    color: const Color.fromRGBO(18, 20, 32, 1),
+  );
+
+  static const historyShowCardBorderSideDecoration = BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: Color.fromRGBO(74, 89, 103, 1),
+        width: 0.5,
+      ),
+    ),
+  );
+
+  static const historyShowNameStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontSize: 17,
+    letterSpacing: 0.43,
+    color: Color.fromRGBO(74, 89, 103, 1),
+  );
+
+  static const historyShowValueStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontSize: 17,
+    letterSpacing: 0.43,
   );
 }

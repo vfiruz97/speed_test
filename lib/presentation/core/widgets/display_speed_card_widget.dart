@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:speed_test/presentation/asserts/style.dart';
 
 class DisplaySpeedCardWidget extends StatelessWidget {
-  final double speed;
-  final bool isDownload;
+  final Widget titleWidget;
+  final Widget bodyWidget;
+  final Color backgroundColor;
 
   const DisplaySpeedCardWidget({
     Key key,
-    @required this.speed,
-    @required this.isDownload,
+    @required this.titleWidget,
+    @required this.bodyWidget,
+    @required this.backgroundColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: const Color.fromRGBO(18, 20, 32, 1),
+      color: backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -25,34 +26,8 @@ class DisplaySpeedCardWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(isDownload ? 'DOWNLOAD' : 'UPLOAD',
-                    style: Style.cardTitleStyle),
-                const SizedBox(width: 12),
-                Icon(
-                  isDownload ? Icons.arrow_downward : Icons.arrow_upward,
-                  color: const Color.fromRGBO(74, 89, 103, 1),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                RichText(
-                  text: TextSpan(
-                    text: speed.toString(),
-                    style: Style.cardSpeedStyle,
-                    children: const <TextSpan>[
-                      TextSpan(
-                        text: 'Mbps',
-                        style: Style.cardSpeedMeasurementStyle,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            titleWidget,
+            bodyWidget,
           ],
         ),
       ),

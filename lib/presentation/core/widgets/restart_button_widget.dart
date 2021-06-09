@@ -23,7 +23,7 @@ class RestartButtonWidget extends StatelessWidget {
       onPressed: () {
         BlocProvider.of<PageNavigationBloc>(context).add(
             const PageNavigationEvent.changedCurrentPage(
-                newCurrentPage: PageName.startPage));
+                newCurrentPage: PageName.startLoadingPage));
       },
     );
   }

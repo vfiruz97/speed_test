@@ -16,9 +16,11 @@ class StartButtonWidget extends StatelessWidget {
       onPressed: () {
         // TODO: run function
         BlocProvider.of<PageNavigationBloc>(context).add(
-            const PageNavigationEvent.changedCurrentPage(
-                newCurrentPage: PageName.startLoadingPage));
-        print('tapped start button');
+          const PageNavigationEvent.changedCurrentPage(
+            newCurrentPage: PageName.startLoadingPage,
+            newCurrentBottomNavigationIndex: 0,
+          ),
+        );
       },
       child: Container(
         width: 200,
