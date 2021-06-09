@@ -16,6 +16,7 @@ class SpeedValueCardWidget extends StatelessWidget {
     return Row(
       children: [
         RichText(
+          overflow: TextOverflow.ellipsis,
           text: TextSpan(
             text: speed.toString(),
             style: Style.cardSpeedStyle,

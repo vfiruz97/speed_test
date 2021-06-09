@@ -5,5 +5,7 @@ enum PageName {
   // second button of bottomNavigationBar
   historyPage,
   historyEmptyPage,
-  historyShow
+  historyShow,
+  //  setting 
+  settingsPage
 }

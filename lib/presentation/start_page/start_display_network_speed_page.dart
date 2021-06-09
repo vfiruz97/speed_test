@@ -23,7 +23,6 @@ class StartDisplayNetworkSpeedPage extends StatelessWidget {
         children: [
           const SizedBox(),
           Container(
-            padding: const EdgeInsets.all(24),
             alignment: Alignment.center,
             child: Column(
               // ignore: prefer_const_literals_to_create_immutables
@@ -78,7 +77,7 @@ class _SpeedCardsState extends State<SpeedCards> {
             unit: downloadUnit.toString(),
           ),
         ),
-        const SizedBox(width: 4),
+        const SizedBox(width: 8),
         DisplaySpeedCardWidget(
           backgroundColor: const Color.fromRGBO(18, 20, 32, 1),
           titleWidget: const UploadCardTitleWidget(),

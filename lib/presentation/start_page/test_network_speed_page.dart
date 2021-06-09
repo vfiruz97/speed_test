@@ -62,11 +62,12 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
   }
 
   FutureOr<void> _startDownloadTesting() async {
-    _metColor = const Color.fromRGBO(79, 176, 167, 1);
-    downloadRate = rate = 0;
-    downloadUnitText = unit = 'Mbps';
-    isDownloadTesting = true;
-    setState(() {});
+    setState(() {
+      _metColor = const Color.fromRGBO(79, 176, 167, 1);
+      downloadRate = rate = 0;
+      downloadUnitText = unit = 'Mbps';
+      isDownloadTesting = true;
+    });
 
     await _internetSpeedTest.startDownloadTesting(
       onDone: (double transferRate, SpeedUnit unitT) {
@@ -88,21 +89,30 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
         });
       },
       onError: (String errorMessage, String speedTestError) {
-        BlocProvider.of<NotificationBloc>(context).add(const NotificationEvent
-                .show(
-            "Occured an unexpected error, check the connection and please try again!"));
+        BlocProvider.of<NotificationBloc>(context).add(
+          const NotificationEvent.show(
+              "Occured an unexpected error, check the connection and please try again!"),
+        );
         Future.delayed(
-            const Duration(seconds: 1),
-            () => BlocProvider.of<PageNavigationBloc>(context).add(
-                const PageNavigationEvent.changedCurrentPage(
-                    newCurrentPage: PageName.startPage)));
+          const Duration(seconds: 1),
+          () => BlocProvider.of<PageNavigationBloc>(context).add(
+            const PageNavigationEvent.changedCurrentPage(
+                newCurrentPage: PageName.startPage),
+          ),
+        );
       },
     );
   }
 
   FutureOr<void> _startUploadTesting() async {
-    isUploadTesting = true;
-    points = [const Offset(0, 30)];
+    setState(() {
+      isUploadTesting = true;
+      points = [const Offset(0, 30)];
+      _metColor = const Color.fromRGBO(162, 109, 217, 1);
+      uploadRate = rate = 0;
+      uploadUnitText = unit = 'Mbps';
+    });
+
     final Timer _randomUploadTimer = Timer.periodic(
       const Duration(milliseconds: 200),
       (Timer t) {
@@ -111,16 +121,10 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
       },
     );
 
-    _metColor = const Color.fromRGBO(162, 109, 217, 1);
-    uploadRate = rate = 0;
-    uploadUnitText = unit = 'Mbps';
-    setState(() {});
-
     await _internetSpeedTest.startUploadTesting(
       onDone: (double transferRate, SpeedUnit unitT) {
         isUploadTesting = false;
         _randomUploadTimer.cancel();
-
         setState(() {
           uploadRate = rate = transferRate;
           uploadUnitText = unit = unitT == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
@@ -152,15 +156,17 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
       },
       onError: (String errorMessage, String speedTestError) {
         _randomUploadTimer.cancel();
-        BlocProvider.of<NotificationBloc>(context).add(const NotificationEvent
-                .show(
-            "Occured an unexpected error, check the connection and please try again!"));
-
+        BlocProvider.of<NotificationBloc>(context).add(
+           NotificationEvent.show(
+              "Occured an unexpected error, check the connection and please try again! $speedTestError"),
+        );
         Future.delayed(
-            const Duration(seconds: 1),
-            () => BlocProvider.of<PageNavigationBloc>(context).add(
-                const PageNavigationEvent.changedCurrentPage(
-                    newCurrentPage: PageName.startPage)));
+          const Duration(seconds: 1),
+          () => BlocProvider.of<PageNavigationBloc>(context).add(
+            const PageNavigationEvent.changedCurrentPage(
+                newCurrentPage: PageName.startPage),
+          ),
+        );
       },
     );
   }
