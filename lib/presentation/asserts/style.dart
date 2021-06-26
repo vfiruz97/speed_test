@@ -11,6 +11,14 @@ class Style {
     color: Colors.white,
   );
 
+  static const titleBarTitleStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w700,
+    fontSize: 30,
+    letterSpacing: 0.37,
+    color: Colors.white,
+  );
+
   static const startButtonStyle = TextStyle(
     fontFamily: 'SF Pro Display',
     fontWeight: FontWeight.w600,
@@ -47,11 +55,21 @@ class Style {
     ],
   );
 
+  static const titleBarDecoration = BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: Color.fromRGBO(84, 84, 88, 0.65),
+        width: 0.5,
+      ),
+    ),
+    color: Colors.black,
+  );
+
   static const cancelButtonStyle = TextStyle(
-    fontFamily: 'SF Pro Text',
+    fontFamily: 'Montserrat',
     fontWeight: FontWeight.w400,
     fontSize: 17,
-    letterSpacing: 0.41,
+    letterSpacing: 0.43,
     color: Colors.white,
   );
 
