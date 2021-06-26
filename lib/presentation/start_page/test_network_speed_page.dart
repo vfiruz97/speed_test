@@ -97,7 +97,9 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
           const Duration(seconds: 1),
           () => BlocProvider.of<PageNavigationBloc>(context).add(
             const PageNavigationEvent.changedCurrentPage(
-                newCurrentPage: PageName.startPage),
+              newCurrentPage: PageName.startPage,
+              newCurrentBottomNavigationIndex: 1,
+            ),
           ),
         );
       },
@@ -142,7 +144,7 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
         Future.delayed(const Duration(seconds: 1), () {
           BlocProvider.of<PageNavigationBloc>(context).add(
             const PageNavigationEvent.changedCurrentPage(
-              newCurrentBottomNavigationIndex: 0,
+              newCurrentBottomNavigationIndex: 1,
               newCurrentPage: PageName.startDisplayNetworkSpeedPage,
             ),
           );
@@ -157,14 +159,16 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
       onError: (String errorMessage, String speedTestError) {
         _randomUploadTimer.cancel();
         BlocProvider.of<NotificationBloc>(context).add(
-           NotificationEvent.show(
+          NotificationEvent.show(
               "Occured an unexpected error, check the connection and please try again! $speedTestError"),
         );
         Future.delayed(
           const Duration(seconds: 1),
           () => BlocProvider.of<PageNavigationBloc>(context).add(
             const PageNavigationEvent.changedCurrentPage(
-                newCurrentPage: PageName.startPage),
+              newCurrentPage: PageName.startPage,
+              newCurrentBottomNavigationIndex: 1,
+            ),
           ),
         );
       },

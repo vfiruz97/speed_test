@@ -17,10 +17,10 @@ AppBar buildAppBar() {
       builder: (context, state) {
         switch (state.currentBottomNavigationIndex) {
           case 0:
-            return const Text('SPEED TEST', style: Style.appBarTitleStyle);
+            return const Text('HISTORY', style: Style.appBarTitleStyle);
             break;
           case 1:
-            return const Text('HISTORY', style: Style.appBarTitleStyle);
+            return const Text('SPEED TEST', style: Style.appBarTitleStyle);
             break;
           case 2:
             return const Text('SETTINGS', style: Style.appBarTitleStyle);
@@ -41,7 +41,7 @@ AppBar buildAppBar() {
                   BlocProvider.of<PageNavigationBloc>(context).add(
                     const PageNavigationEvent.changedCurrentPage(
                       newCurrentPage: PageName.startLoadingPage,
-                      newCurrentBottomNavigationIndex: 0,
+                      newCurrentBottomNavigationIndex: 1,
                     ),
                   );
                 },
@@ -54,7 +54,7 @@ AppBar buildAppBar() {
                   BlocProvider.of<PageNavigationBloc>(context).add(
                     const PageNavigationEvent.changedCurrentPage(
                       newCurrentPage: PageName.startPage,
-                      newCurrentBottomNavigationIndex: 0,
+                      newCurrentBottomNavigationIndex: 1,
                     ),
                   );
                   // TODO: Cancel loading and back to startPage
@@ -119,7 +119,7 @@ AppBar buildAppBar() {
                               BlocProvider.of<PageNavigationBloc>(context).add(
                             const PageNavigationEvent.changedCurrentPage(
                               newCurrentPage: PageName.historyEmptyPage,
-                              newCurrentBottomNavigationIndex: 1,
+                              newCurrentBottomNavigationIndex: 0,
                             ),
                           ),
                         );
@@ -170,7 +170,7 @@ AppBar buildAppBar() {
                         BlocProvider.of<PageNavigationBloc>(context).add(
                           const PageNavigationEvent.changedCurrentPage(
                             newCurrentPage: PageName.historyPage,
-                            newCurrentBottomNavigationIndex: 1,
+                            newCurrentBottomNavigationIndex: 0,
                           ),
                         );
                       }
@@ -194,7 +194,7 @@ AppBar buildAppBar() {
                 BlocProvider.of<PageNavigationBloc>(context).add(
                   const PageNavigationEvent.changedCurrentPage(
                     newCurrentPage: PageName.historyPage,
-                    newCurrentBottomNavigationIndex: 1,
+                    newCurrentBottomNavigationIndex: 0,
                   ),
                 );
               },

@@ -258,4 +258,11 @@ class Style {
     letterSpacing: 0.41,
     color: Color.fromRGBO(74, 89, 103, 1),
   );
+
+  static const bottomNavSelectedLabelStyle = TextStyle(
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    letterSpacing: 0.08,
+  );
 }

@@ -10,7 +10,7 @@ abstract class PageNavigationState with _$PageNavigationState {
 
   factory PageNavigationState.initial() => const PageNavigationState(
         currentPageName: PageName.startPage,
-        currentBottomNavigationIndex: 0,
+        currentBottomNavigationIndex: 1,
         data: 0,
       );
 }

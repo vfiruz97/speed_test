@@ -18,7 +18,7 @@ class StartButtonWidget extends StatelessWidget {
         BlocProvider.of<PageNavigationBloc>(context).add(
           const PageNavigationEvent.changedCurrentPage(
             newCurrentPage: PageName.startLoadingPage,
-            newCurrentBottomNavigationIndex: 0,
+            newCurrentBottomNavigationIndex: 1,
           ),
         );
       },

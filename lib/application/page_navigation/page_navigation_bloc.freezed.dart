@@ -16,7 +16,7 @@ class _$PageNavigationEventTearOff {
 // ignore: unused_element
   _PageNavigationEvent changedCurrentPage(
       {PageName newCurrentPage = PageName.startPage,
-      int newCurrentBottomNavigationIndex = 0,
+      int newCurrentBottomNavigationIndex = 1,
       dynamic data = 0}) {
     return _PageNavigationEvent(
       newCurrentPage: newCurrentPage,
@@ -148,7 +148,7 @@ class __$PageNavigationEventCopyWithImpl<$Res>
 class _$_PageNavigationEvent implements _PageNavigationEvent {
   const _$_PageNavigationEvent(
       {this.newCurrentPage = PageName.startPage,
-      this.newCurrentBottomNavigationIndex = 0,
+      this.newCurrentBottomNavigationIndex = 1,
       this.data = 0})
       : assert(newCurrentPage != null),
         assert(newCurrentBottomNavigationIndex != null),
@@ -157,7 +157,7 @@ class _$_PageNavigationEvent implements _PageNavigationEvent {
   @JsonKey(defaultValue: PageName.startPage)
   @override
   final PageName newCurrentPage;
-  @JsonKey(defaultValue: 0)
+  @JsonKey(defaultValue: 1)
   @override
   final int newCurrentBottomNavigationIndex;
   @JsonKey(defaultValue: 0)

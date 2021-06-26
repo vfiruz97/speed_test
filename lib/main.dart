@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:speed_test/application/notification/notification_bloc.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
 import 'package:speed_test/application/rate/rate_bloc.dart';
+import 'package:speed_test/presentation/asserts/style.dart';
 import 'package:speed_test/presentation/core/main_page.dart';
 import 'package:speed_test/presentation/subscription/subscription_page.dart';
 
@@ -20,6 +21,8 @@ class SpeedTestApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.black,
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             backgroundColor: Colors.black,
+            selectedLabelStyle: Style.bottomNavSelectedLabelStyle,
+            selectedItemColor: Color.fromRGBO(79, 176, 167, 1),
           ),
           appBarTheme: AppBarTheme.of(context).copyWith(
             backgroundColor: Colors.black,

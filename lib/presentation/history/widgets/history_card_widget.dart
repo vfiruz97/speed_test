@@ -22,7 +22,7 @@ class HistoryCardWidget extends StatelessWidget {
         BlocProvider.of<PageNavigationBloc>(context).add(
           PageNavigationEvent.changedCurrentPage(
             newCurrentPage: PageName.historyShow,
-            newCurrentBottomNavigationIndex: 1,
+            newCurrentBottomNavigationIndex: 0,
             data: speed,
           ),
         );

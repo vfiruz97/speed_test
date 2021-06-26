@@ -45,7 +45,9 @@ class MainPage extends StatelessWidget {
                     const Duration(seconds: 1),
                     () => BlocProvider.of<PageNavigationBloc>(context).add(
                       const PageNavigationEvent.changedCurrentPage(
-                          newCurrentPage: PageName.startPage),
+                        newCurrentPage: PageName.startPage,
+                        newCurrentBottomNavigationIndex: 1,
+                      ),
                     ),
                   );
                 }

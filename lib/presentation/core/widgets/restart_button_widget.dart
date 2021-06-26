@@ -21,9 +21,11 @@ class RestartButtonWidget extends StatelessWidget {
         child: const Text('Restart', style: Style.restartButtonStyle),
       ),
       onPressed: () {
-        BlocProvider.of<PageNavigationBloc>(context).add(
-            const PageNavigationEvent.changedCurrentPage(
-                newCurrentPage: PageName.startLoadingPage));
+        BlocProvider.of<PageNavigationBloc>(context)
+            .add(const PageNavigationEvent.changedCurrentPage(
+          newCurrentPage: PageName.startLoadingPage,
+          newCurrentBottomNavigationIndex: 1,
+        ));
       },
     );
   }

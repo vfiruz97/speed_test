@@ -31,13 +31,14 @@ dependencies:
   dartz: ^0.10.0-nullsafety.1
   device_info_plus: ^1.0.1
   flutter_bloc: ^7.0.0
+  flutter_slidable: ^0.6.0
+  flutter_svg: ^0.22.0
   freezed_annotation: 0.12.0
   internet_speed_test: ^1.5.0
   network_info_plus: ^1.0.1
   path_provider: ^2.0.2
   share: ^2.0.4
   uuid: any
-  flutter_slidable: ^0.6.0
 
 dev_dependencies:
   flutter_test:
