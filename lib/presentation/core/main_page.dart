@@ -97,9 +97,10 @@ class MainPage extends StatelessWidget {
                         break;
                       case PageName.historyShow:
                         return HistoryShowPage(
-                            speed: (state.data is Speed)
-                                ? state.data as Speed
-                                : null);
+                          speed: (state.data is Speed)
+                              ? state.data as Speed
+                              : null,
+                        );
                         break;
                       case PageName.historyEmptyPage:
                         return const SizedBox();

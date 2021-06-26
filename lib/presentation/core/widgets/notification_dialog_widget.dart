@@ -6,11 +6,13 @@ class NotificationDialogWidget extends StatelessWidget {
   /// {"pressedNo": true, "pressedYes": false}
   final String title;
   final String message;
+  final String submitButtonLabel;
 
   const NotificationDialogWidget({
     Key key,
     @required this.title,
     @required this.message,
+    this.submitButtonLabel = "Clear",
   }) : super(key: key);
 
   @override
@@ -56,7 +58,7 @@ class NotificationDialogWidget extends StatelessWidget {
                       {"pressedNo": true, "pressedYes": false}
                     ]),
                     child: const Text(
-                      "No",
+                      "Cancel",
                       style: Style.dialogButtonStyle,
                     ),
                   ),
@@ -70,9 +72,9 @@ class NotificationDialogWidget extends StatelessWidget {
                     onPressed: () => Navigator.pop(context, [
                       {"pressedNo": false, "pressedYes": true}
                     ]),
-                    child: const Text(
-                      "Yes",
-                      style: Style.dialogButtonStyle,
+                    child: Text(
+                      submitButtonLabel,
+                      style: Style.dialogBoldButtonStyle,
                     ),
                   ),
                 ),

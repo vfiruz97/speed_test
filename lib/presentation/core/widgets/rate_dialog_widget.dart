@@ -94,7 +94,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 1 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(79, 176, 167, 1),
+                      color: const Color.fromRGBO(0, 122, 255, 1),
                     ),
                   ),
                 ),
@@ -111,7 +111,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 2 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(79, 176, 167, 1),
+                      color: const Color.fromRGBO(0, 122, 255, 1),
                     ),
                   ),
                 ),
@@ -128,7 +128,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 3 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(79, 176, 167, 1),
+                      color: const Color.fromRGBO(0, 122, 255, 1),
                     ),
                   ),
                 ),
@@ -145,7 +145,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 4 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(79, 176, 167, 1),
+                      color: const Color.fromRGBO(0, 122, 255, 1),
                     ),
                   ),
                 ),
@@ -162,7 +162,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 5 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(79, 176, 167, 1),
+                      color: const Color.fromRGBO(0, 122, 255, 1),
                     ),
                   ),
                 ),
@@ -190,7 +190,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                   // TODO:// Send rate print(starRate);
                   Navigator.pop(context);
                 },
-                child: const Text("Submit", style: Style.dialogButtonStyle),
+                child: const Text("Submit", style: Style.dialogBoldButtonStyle),
               ),
             ),
           ],

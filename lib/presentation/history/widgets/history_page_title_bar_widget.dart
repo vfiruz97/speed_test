@@ -31,20 +31,22 @@ class HistoryPageTitleBarWidget extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 BlocProvider.of<PageNavigationBloc>(context).add(
-                  const PageNavigationEvent.changedCurrentPage(
-                    newCurrentPage: PageName.startPage,
-                    newCurrentBottomNavigationIndex: 1,
+                  PageNavigationEvent.changedCurrentPage(
+                    newCurrentPage:
+                        state.currentPageName == PageName.historyShow
+                            ? PageName.historyPage
+                            : PageName.startPage,
+                    newCurrentBottomNavigationIndex:
+                        state.currentPageName == PageName.historyShow ? 0 : 1,
                   ),
                 );
               },
-              child: RichText(
-                text: const TextSpan(
-                  text: '<',
-                  style: TextStyle(fontSize: 24),
-                  children: <TextSpan>[
-                    TextSpan(text: 'Back', style: Style.cancelButtonStyle),
-                  ],
-                ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Icon(Icons.arrow_back_ios),
+                  Text('Back', style: Style.cancelButtonStyle),
+                ],
               ),
             ),
           ),
@@ -90,6 +92,7 @@ class HistoryPageTitleBarWidget extends StatelessWidget {
                                 title: "Clear history",
                                 message:
                                     "Are you sure you want to delete this result?",
+                                submitButtonLabel: "Delete",
                               );
                             },
                           );

@@ -161,7 +161,15 @@ class Style {
     fontWeight: FontWeight.w400,
     fontSize: 17,
     letterSpacing: 0.43,
-    color: Color.fromRGBO(79, 176, 167, 1),
+    color: Color.fromRGBO(0, 122, 255, 1),
+  );
+
+  static const dialogBoldButtonStyle = TextStyle(
+    fontFamily: "SF Pro Text",
+    fontWeight: FontWeight.w600,
+    fontSize: 17,
+    letterSpacing: 0.43,
+    color: Color.fromRGBO(0, 122, 255, 1),
   );
 
   static const dialogSrightWallDecoration = BoxDecoration(
