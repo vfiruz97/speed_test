@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:speed_test/presentation/asserts/style.dart';
 import 'package:speed_test/presentation/subscription/subscrip_list_item_widget.dart';
@@ -8,6 +9,11 @@ class SubscriptionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
