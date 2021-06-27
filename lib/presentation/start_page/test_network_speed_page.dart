@@ -13,7 +13,6 @@ import 'package:speed_test/application/page_navigation/pages_name.dart';
 import 'package:speed_test/application/test_speed/test_speed_bloc.dart';
 
 import 'package:speed_test/presentation/asserts/style.dart';
-import 'package:speed_test/presentation/core/painter/line_graph_painter.dart';
 import 'package:speed_test/presentation/core/widgets/display_speed_card_widget.dart';
 import 'package:speed_test/presentation/core/widgets/download_card_title_widget.dart';
 import 'package:speed_test/presentation/core/widgets/speed_value_card_widget.dart';
@@ -40,52 +39,33 @@ class DisplaySpeedometrWidget extends StatefulWidget {
 
 class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
   final InternetSpeedTest _internetSpeedTest = InternetSpeedTest();
-  Color _metColor;
 
   double rate = 0, uploadRate = 0, downloadRate = 0;
-  String unit = 'Mbps', uploadUnitText = 'Mbps', downloadUnitText = 'Mbps';
-  bool isDownloadTesting = false, isUploadTesting = false;
-  List<Offset> points = [const Offset(0, 30)];
-
-  void lineGraphDrawerHandle() {
-    const int step = 3;
-    const int widthPaligon = 100;
-
-    double dx = points.last.dx + step;
-    if (dx > widthPaligon) {
-      points.removeAt(0);
-      points = points.map((e) => Offset(e.dx - step, e.dy)).toList();
-      dx -= step;
-    }
-    points.add(Offset(dx, math.Random().nextInt(32).toDouble()));
-    setState(() {});
-  }
+  String uploadUnitText = 'Mbps', downloadUnitText = 'Mbps';
+  bool isTestingDownload = true;
 
   FutureOr<void> _startDownloadTesting() async {
     setState(() {
-      _metColor = const Color.fromRGBO(79, 176, 167, 1);
+      isTestingDownload = true;
       downloadRate = rate = 0;
-      downloadUnitText = unit = 'Mbps';
-      isDownloadTesting = true;
+      downloadUnitText = 'Mbps';
     });
 
     await _internetSpeedTest.startDownloadTesting(
-      onDone: (double transferRate, SpeedUnit unitT) {
-        isDownloadTesting = false;
-        lineGraphDrawerHandle();
+      onDone: (double transferRate, SpeedUnit unit) {
         setState(() {
-          downloadRate = rate = transferRate;
-          downloadUnitText = unit = unitT == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
+          isTestingDownload = false;
+          downloadRate = transferRate;
+          downloadUnitText = unit == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
+          rate = 0;
         });
 
-        Future.delayed(
-            const Duration(microseconds: 500), () => _startUploadTesting());
+        Future.delayed(const Duration(seconds: 1), () => _startUploadTesting());
       },
-      onProgress: (double percent, double transferRate, SpeedUnit unitT) {
+      onProgress: (double percent, double transferRate, SpeedUnit unit) {
         setState(() {
-          lineGraphDrawerHandle();
           rate = transferRate + (math.Random().nextDouble() * 2);
-          unit = unitT == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
+          downloadUnitText = unit == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
         });
       },
       onError: (String errorMessage, String speedTestError) {
@@ -108,28 +88,25 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
 
   FutureOr<void> _startUploadTesting() async {
     setState(() {
-      isUploadTesting = true;
-      points = [const Offset(0, 30)];
-      _metColor = const Color.fromRGBO(162, 109, 217, 1);
       uploadRate = rate = 0;
-      uploadUnitText = unit = 'Mbps';
+      uploadUnitText = 'Mbps';
     });
 
     final Timer _randomUploadTimer = Timer.periodic(
       const Duration(milliseconds: 200),
       (Timer t) {
-        rate = math.Random().nextDouble() * 2;
-        lineGraphDrawerHandle();
+        setState(() {
+          rate = math.Random().nextDouble() * 3;
+        });
       },
     );
 
     await _internetSpeedTest.startUploadTesting(
-      onDone: (double transferRate, SpeedUnit unitT) {
-        isUploadTesting = false;
+      onDone: (double transferRate, SpeedUnit unit) {
         _randomUploadTimer.cancel();
         setState(() {
           uploadRate = rate = transferRate;
-          uploadUnitText = unit = unitT == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
+          uploadUnitText = unit == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
         });
 
         BlocProvider.of<TestSpeedBloc>(context).add(
@@ -150,10 +127,10 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
           );
         });
       },
-      onProgress: (double percent, double transferRate, SpeedUnit unitT) {
+      onProgress: (double percent, double transferRate, SpeedUnit unit) {
         setState(() {
           rate = transferRate;
-          unit = unitT == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
+          uploadUnitText = unit == SpeedUnit.Kbps ? 'Kbps' : 'Mbps';
         });
       },
       onError: (String errorMessage, String speedTestError) {
@@ -178,7 +155,6 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
   @override
   void initState() {
     super.initState();
-    _metColor = const Color.fromRGBO(79, 176, 167, 1);
     _startDownloadTesting();
   }
 
@@ -193,45 +169,28 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
           maxValue: 60,
           currentValue: rate.round(),
           warningValue: rate.round(),
-          displayText: unit,
+          displayText: isTestingDownload ? '↓' : '↑',
           displayNumericStyle: Style.cardSpeedStyle,
-          displayTextStyle: Style.cardSpeedMeasurementStyle,
+          displayTextStyle: Style.speedometrDisplayTextStyle,
           warningColor: Colors.grey[900],
-          meterColor: _metColor,
+          meterColor: const Color.fromRGBO(79, 176, 167, 1),
+          kimColor: const Color.fromRGBO(79, 176, 167, 0.6),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.min,
           children: [
             DisplaySpeedCardWidget(
-              backgroundColor: Colors.black,
-              titleWidget: const DownloadCardTitleWidget(),
-              bodyWidget: isDownloadTesting
-                  ? CustomPaint(
-                      size: const Size(160, 32),
-                      willChange: true,
-                      painter: LineGraphPainter(
-                        points: points,
-                        color: _metColor,
-                      ))
-                  : downloadRate == 0
-                      ? const SizedBox()
-                      : SpeedValueCardWidget(speed: downloadRate, unit: unit),
+              titleWidget: DownloadCardTitleWidget(unit: downloadUnitText),
+              bodyWidget: downloadRate == 0
+                  ? const SizedBox()
+                  : SpeedValueCardWidget(speed: downloadRate),
             ),
             DisplaySpeedCardWidget(
-              backgroundColor: Colors.black,
-              titleWidget: const UploadCardTitleWidget(),
-              bodyWidget: isUploadTesting
-                  ? CustomPaint(
-                      size: const Size(160, 32),
-                      willChange: true,
-                      painter: LineGraphPainter(
-                        points: points,
-                        color: _metColor,
-                      ))
-                  : uploadRate == 0
-                      ? const SizedBox()
-                      : SpeedValueCardWidget(speed: uploadRate, unit: unit),
+              titleWidget: UploadCardTitleWidget(unit: uploadUnitText),
+              bodyWidget: uploadRate == 0
+                  ? const SizedBox()
+                  : SpeedValueCardWidget(speed: uploadRate),
             ),
           ],
         ),

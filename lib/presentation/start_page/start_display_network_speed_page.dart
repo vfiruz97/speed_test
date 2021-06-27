@@ -27,8 +27,8 @@ class StartDisplayNetworkSpeedPage extends StatelessWidget {
             child: Column(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                const Text('ALL FINISHED', style: Style.textFirstHeader),
-                const SizedBox(height: 36),
+                const Text('RESULT', style: Style.textFirstHeader),
+                const SizedBox(height: 24),
                 const SpeedCards(),
               ],
             ),
@@ -70,21 +70,13 @@ class _SpeedCardsState extends State<SpeedCards> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         DisplaySpeedCardWidget(
-          backgroundColor: const Color.fromRGBO(18, 20, 32, 1),
           titleWidget: const DownloadCardTitleWidget(),
-          bodyWidget: SpeedValueCardWidget(
-            speed: downloadRate,
-            unit: downloadUnit.toString(),
-          ),
+          bodyWidget: SpeedValueCardWidget(speed: downloadRate),
         ),
         const SizedBox(width: 8),
         DisplaySpeedCardWidget(
-          backgroundColor: const Color.fromRGBO(18, 20, 32, 1),
           titleWidget: const UploadCardTitleWidget(),
-          bodyWidget: SpeedValueCardWidget(
-            speed: uploadRate,
-            unit: uploadUnit,
-          ),
+          bodyWidget: SpeedValueCardWidget(speed: uploadRate),
         ),
       ],
     );

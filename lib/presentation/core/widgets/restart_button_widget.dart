@@ -18,7 +18,7 @@ class RestartButtonWidget extends StatelessWidget {
         height: 48,
         alignment: Alignment.center,
         decoration: Style.restartButtonDecoration,
-        child: const Text('Restart', style: Style.restartButtonStyle),
+        child: const Text('Retry', style: Style.restartButtonStyle),
       ),
       onPressed: () {
         BlocProvider.of<PageNavigationBloc>(context)

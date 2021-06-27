@@ -51,7 +51,7 @@ BlocBuilder<PageNavigationBloc, PageNavigationState>
           // ignore: prefer_const_literals_to_create_immutables
           items: [
             bottomNavigationBarItem(label: 'History', imageName: "history"),
-            bottomNavigationBarItem(label: 'Speed-Test', imageName: "shuttle"),
+            bottomNavigationBarItem(label: 'Speed Test', imageName: "shuttle"),
             bottomNavigationBarItem(label: 'Settings', imageName: "settings"),
           ],
         ),

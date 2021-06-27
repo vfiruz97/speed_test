@@ -20,7 +20,7 @@ class SpeedTestApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: Colors.black,
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: Colors.black,
+            backgroundColor: Color.fromRGBO(18, 20, 32, 1),
             selectedLabelStyle: Style.bottomNavSelectedLabelStyle,
             selectedItemColor: Color.fromRGBO(79, 176, 167, 1),
           ),
