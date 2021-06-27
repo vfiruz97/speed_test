@@ -13,7 +13,7 @@ class SubscriptionPage extends StatelessWidget {
         children: <Widget>[
           Container(decoration: Style.subscriptionBackgroundDecoration),
           Padding(
-            padding: const EdgeInsets.only(top: 60, bottom: 50),
+            padding: const EdgeInsets.only(top: 83, bottom: 52),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,55 +25,54 @@ class SubscriptionPage extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () => null,
-                        icon: const Icon(
-                          Icons.close,
-                          size: 26,
-                          color: Color.fromRGBO(196, 196, 196, 1),
-                        ),
+                        icon: const Icon(Icons.close),
                       ),
                       TextButton(
                         onPressed: () => null,
-                        child: Row(
-                          children: const [
-                            Icon(Icons.refresh, color: Colors.white),
-                            SizedBox(width: 8),
-                            Text(
-                              "Restore purchases",
-                              style: Style.subscriptionRestoreStyle,
-                            ),
-                          ],
+                        child: Container(
+                          height: 32,
+                          width: 152,
+                          alignment: Alignment.center,
+                          decoration: Style.restartButtonDecoration,
+                          child: const Text(
+                            "Restore Purchases",
+                            style: Style.subscriptionRestoreStyle,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                Center(child: Image.asset("assets/images/rocket.png")),
                 Padding(
-                  padding: const EdgeInsets.only(left: 40),
+                  padding: const EdgeInsets.all(32.0),
+                  child: Image.asset("assets/images/wifi.png"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 32),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 24),
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 48),
                         child: Text(
-                          "Speed test MASTER",
+                          'Speed Test\nWifi & Internet',
                           textAlign: TextAlign.start,
                           style: Style.subscriptionSpeedTestStyle,
                         ),
                       ),
                       SubscripListItemWidget(
-                        icon: Icons.check_circle_outline,
-                        title: "More accurte",
+                        icon: Image.asset("assets/images/vector.png"),
+                        title: "Advanced wi-fi analyzing",
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       SubscripListItemWidget(
-                        icon: Icons.check_circle_outline,
-                        title: "Unlimited test",
+                        icon: Image.asset("assets/images/vector.png"),
+                        title: "Unlimited tests every day",
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       SubscripListItemWidget(
-                        icon: Icons.check_circle_outline,
-                        title: "Advanced ping",
+                        icon: Image.asset("assets/images/vector.png"),
+                        title: "Test History Access",
                       ),
                     ],
                   ),
@@ -88,49 +87,48 @@ class SubscriptionPage extends StatelessWidget {
                         style: Style.subscriptionFreeUnlimiteStyle,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 16),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
                       child: TextButton(
                         child: Container(
-                          height: 48,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          decoration: Style.restartButtonDecoration,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              SizedBox(),
-                              Text('Continue', style: Style.restartButtonStyle),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ],
+                          height: 64,
+                          decoration:
+                              Style.continueSubscribtionButtonDecoration,
+                          alignment: Alignment.center,
+                          child: const Text(
+                            'Continue',
+                            style: Style.continueSubscribtionButtonStyle,
                           ),
                         ),
                         onPressed: () => null,
                       ),
                     ),
-                    const SizedBox(height: 38),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                          onPressed: () => null,
-                          child: const Text(
-                            "Privacy Policy",
-                            style: Style.subscriptionPrivacyStyle,
+                    const SizedBox(height: 24),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: TextButton(
+                              onPressed: () => null,
+                              child: const Text(
+                                "Privacy Policy",
+                                style: Style.subscriptionPrivacyStyle,
+                              ),
+                            ),
                           ),
-                        ),
-                        const Text("|", style: Style.subscriptionPrivacyStyle),
-                        TextButton(
-                          onPressed: () => null,
-                          child: const Text(
-                            "Terms of Use",
-                            style: Style.subscriptionPrivacyStyle,
+                          Expanded(
+                            child: TextButton(
+                              onPressed: () => null,
+                              child: const Text(
+                                "Terms of Use",
+                                style: Style.subscriptionPrivacyStyle,
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),

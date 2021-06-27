@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Style {
@@ -82,9 +84,29 @@ class Style {
     border: Border.all(color: const Color.fromRGBO(79, 176, 167, 1)),
   );
 
+  static final continueSubscribtionButtonDecoration = BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    gradient: const LinearGradient(
+      colors: [
+        Color.fromRGBO(124, 195, 189, 1),
+        Color.fromRGBO(79, 124, 176, 1)
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+  );
+
   static const restartButtonStyle = TextStyle(
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w400,
+    fontSize: 17,
+    color: Colors.white,
+    letterSpacing: 0.43,
+  );
+
+  static const continueSubscribtionButtonStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
     fontSize: 17,
     color: Colors.white,
     letterSpacing: 0.43,
@@ -222,49 +244,49 @@ class Style {
 
   static const subscriptionBackgroundDecoration = BoxDecoration(
     image: DecorationImage(
-      image: AssetImage("assets/images/background.png"),
+      image: AssetImage("assets/images/bg.png"),
       fit: BoxFit.cover,
     ),
   );
 
   static const subscriptionRestoreStyle = TextStyle(
-    fontFamily: "SF Pro Text",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
-    fontSize: 14,
-    letterSpacing: 0.41,
+    fontSize: 13,
+    letterSpacing: 0.08,
     color: Colors.white,
   );
 
   static const subscriptionSpeedTestStyle = TextStyle(
-    fontFamily: "SF Pro Display",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w600,
-    fontSize: 28,
-    letterSpacing: 0.43,
+    fontSize: 22,
+    letterSpacing: 0.26,
     color: Color.fromRGBO(250, 250, 250, 1),
   );
 
   static const subscriptionListItemStyle = TextStyle(
-    fontFamily: "SF Pro Text",
-    fontWeight: FontWeight.w500,
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w400,
     fontSize: 17,
     letterSpacing: 0.43,
     color: Color.fromRGBO(250, 250, 250, 1),
   );
 
   static const subscriptionFreeUnlimiteStyle = TextStyle(
-    fontFamily: "SF Pro Text",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
-    fontSize: 14,
-    letterSpacing: 0.41,
+    fontSize: 15,
+    letterSpacing: 0.23,
     color: Color.fromRGBO(250, 250, 250, 1),
   );
 
   static const subscriptionPrivacyStyle = TextStyle(
-    fontFamily: "SF Pro Text",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
-    fontSize: 14,
-    letterSpacing: 0.41,
-    color: Color.fromRGBO(74, 89, 103, 1),
+    fontSize: 20,
+    letterSpacing: 0.23,
+    color: Color.fromRGBO(111, 113, 125, 1),
   );
 
   static const bottomNavSelectedLabelStyle = TextStyle(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:speed_test/presentation/asserts/style.dart';
 
 class SettingMenuItemWidget extends StatelessWidget {
