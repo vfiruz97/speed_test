@@ -3,17 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
 import 'package:speed_test/application/page_navigation/pages_name.dart';
 import 'package:speed_test/domain/speed/speed.dart';
-import 'package:speed_test/presentation/history/widgets/history_body_card_widget.dart';
-import 'package:speed_test/presentation/history/widgets/history_footer_card_widget.dart';
-import 'package:speed_test/presentation/history/widgets/history_header_card_widget.dart';
+import 'package:speed_test/presentation/history/widgets/date_time_card_widget.dart';
+import 'package:speed_test/presentation/history/widgets/speed_card_widget.dart';
 
 class HistoryCardWidget extends StatelessWidget {
   const HistoryCardWidget({
     Key key,
     @required this.speed,
+    @required this.backgroundColor,
   }) : super(key: key);
 
   final Speed speed;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +29,14 @@ class HistoryCardWidget extends StatelessWidget {
         );
       },
       child: Container(
-        height: 96,
-        padding:
-            const EdgeInsets.only(left: 16, top: 16, right: 24, bottom: 16),
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(18, 20, 32, 0.8),
-          borderRadius: BorderRadius.circular(8),
-        ),
+        height: 168,
+        padding: const EdgeInsets.only(left: 24, top: 30, right: 24),
+        color: backgroundColor,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HistoryHeaderCardWidget(),
-            const SizedBox(height: 8),
-            HistoryBodyCardWidget(speed: speed),
-            HistoryFooterCardWidget(speed: speed),
+            Expanded(child: DateTimeCardWidget(speed: speed)),
+            Expanded(child: SpeedCardWidget(speed: speed)),
           ],
         ),
       ),

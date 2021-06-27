@@ -30,7 +30,6 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.only(top: 32, left: 24, right: 24),
       itemCount: speedList.length,
       itemBuilder: (context, index) {
         return Slidable(
@@ -41,8 +40,12 @@ class _HistoryPageState extends State<HistoryPage> {
           actionExtentRatio: 0.19,
           child: Column(
             children: [
-              HistoryCardWidget(speed: speedList[index]),
-              const SizedBox(height: 16),
+              HistoryCardWidget(
+                speed: speedList[index],
+                backgroundColor: index % 2 == 0
+                    ? Colors.black
+                    : const Color.fromRGBO(18, 20, 32, 1),
+              ),
             ],
           ),
           secondaryActions: <Widget>[
@@ -50,13 +53,9 @@ class _HistoryPageState extends State<HistoryPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
-                  child: Container(
+                  child: SizedBox(
                     width: 56,
-                    height: 96,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: const Color.fromRGBO(195, 59, 59, 0.2),
-                    ),
+                    height: 168,
                     child: Center(
                       child: IconButton(
                         icon: const Icon(

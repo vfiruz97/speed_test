@@ -5,14 +5,14 @@ class InfoLabelWidget extends StatelessWidget {
   final IconData icon;
   final String name;
   final String value;
-  final bool lastItem;
+  final Color backgroundColor;
 
   const InfoLabelWidget({
     Key key,
     @required this.icon,
     @required this.name,
     @required this.value,
-    @required this.lastItem,
+    this.backgroundColor = Colors.black,
   }) : super(key: key);
 
   @override
@@ -20,16 +20,14 @@ class InfoLabelWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 56,
-      padding: const EdgeInsets.all(8),
-      decoration: lastItem
-          ? const BoxDecoration()
-          : Style.historyShowCardBorderSideDecoration,
+      color: backgroundColor,
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Row(
         children: [
           Icon(
             icon,
             size: 26,
-            color: const Color.fromRGBO(74, 89, 103, 1),
+            color: const Color.fromRGBO(111, 113, 125, 1),
           ),
           const SizedBox(width: 18),
           Text(name, style: Style.historyShowNameStyle),

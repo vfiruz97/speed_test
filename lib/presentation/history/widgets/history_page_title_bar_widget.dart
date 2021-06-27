@@ -89,7 +89,7 @@ class HistoryPageTitleBarWidget extends StatelessWidget {
                             context: context,
                             builder: (context) {
                               return const NotificationDialogWidget(
-                                title: "Clear history",
+                                title: "Delete result",
                                 message:
                                     "Are you sure you want to delete this result?",
                                 submitButtonLabel: "Delete",

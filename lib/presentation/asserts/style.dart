@@ -152,6 +152,14 @@ class Style {
     color: Color.fromRGBO(0, 122, 255, 1),
   );
 
+  static const informationHeaderStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+    fontSize: 22,
+    letterSpacing: 0.26,
+    color: Colors.white,
+  );
+
   static const dialogBoldButtonStyle = TextStyle(
     fontFamily: "SF Pro Text",
     fontWeight: FontWeight.w600,
@@ -170,7 +178,7 @@ class Style {
   );
 
   static const historyCardHeaderStyle = TextStyle(
-    fontFamily: "SF Pro Text",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
     fontSize: 13,
@@ -178,8 +186,8 @@ class Style {
     color: Color.fromRGBO(74, 89, 103, 1),
   );
 
-  static const historyCardBodyStyle = TextStyle(
-    fontFamily: "SF Pro Text",
+  static const historyCardHeaderValueStyle = TextStyle(
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
     fontSize: 17,
@@ -195,31 +203,17 @@ class Style {
     color: Color.fromRGBO(74, 89, 103, 1),
   );
 
-  static final eigthBorderRadiusDecoration = BoxDecoration(
-    borderRadius: BorderRadius.circular(8),
-    color: const Color.fromRGBO(18, 20, 32, 1),
-  );
-
-  static const historyShowCardBorderSideDecoration = BoxDecoration(
-    border: Border(
-      bottom: BorderSide(
-        color: Color.fromRGBO(74, 89, 103, 1),
-        width: 0.5,
-      ),
-    ),
-  );
-
   static const historyShowNameStyle = TextStyle(
-    fontFamily: "SF Pro Text",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
     fontSize: 17,
     letterSpacing: 0.43,
-    color: Color.fromRGBO(74, 89, 103, 1),
+    color: Color.fromRGBO(111, 113, 125, 1),
   );
 
   static const historyShowValueStyle = TextStyle(
-    fontFamily: "SF Pro Text",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
     fontSize: 17,

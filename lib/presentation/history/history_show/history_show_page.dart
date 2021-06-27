@@ -22,47 +22,45 @@ class _HistoryShowPageState extends State<HistoryShowPage> {
     if (widget.speed != null) {
       final Speed _speed = widget.speed;
 
-      return Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            HistoryCardWidget(speed: _speed),
-            const SizedBox(height: 24),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(8),
-              decoration: Style.eigthBorderRadiusDecoration,
-              child: Column(
-                children: [
-                  InfoLabelWidget(
-                    icon: Icons.wifi,
-                    name: "Wi-Fi Name",
-                    value: _speed.wifiInfo.wifiName.getOrCrash(),
-                    lastItem: false,
-                  ),
-                  InfoLabelWidget(
-                    icon: Icons.room,
-                    name: "IP Address",
-                    value: _speed.wifiInfo.ipAddress.getOrCrash(),
-                    lastItem: false,
-                  ),
-                  InfoLabelWidget(
-                    icon: Icons.computer,
-                    name: "Server",
-                    value: _speed.wifiInfo.serverName.getOrCrash(),
-                    lastItem: false,
-                  ),
-                  InfoLabelWidget(
-                    icon: Icons.phone_iphone,
-                    name: "Device",
-                    value: _speed.deviceName.getOrCrash(),
-                    lastItem: true,
-                  ),
-                ],
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HistoryCardWidget(
+            speed: _speed,
+            backgroundColor: Colors.black,
+          ),
+          const SizedBox(height: 24),
+          const Padding(
+            padding: EdgeInsets.all(24),
+            child: Text("Information", style: Style.informationHeaderStyle),
+          ),
+          Column(
+            children: [
+              InfoLabelWidget(
+                icon: Icons.wifi,
+                name: "Wi-Fi Name",
+                value: _speed.wifiInfo.wifiName.getOrCrash(),
               ),
-            ),
-          ],
-        ),
+              InfoLabelWidget(
+                icon: Icons.room,
+                name: "IP Address",
+                value: _speed.wifiInfo.ipAddress.getOrCrash(),
+                backgroundColor: const Color.fromRGBO(18, 20, 32, 1),
+              ),
+              InfoLabelWidget(
+                icon: Icons.computer,
+                name: "Server",
+                value: _speed.wifiInfo.serverName.getOrCrash(),
+              ),
+              InfoLabelWidget(
+                icon: Icons.phone_iphone,
+                name: "Device",
+                value: _speed.deviceName.getOrCrash(),
+                backgroundColor: const Color.fromRGBO(18, 20, 32, 1),
+              ),
+            ],
+          ),
+        ],
       );
     }
     return Container();

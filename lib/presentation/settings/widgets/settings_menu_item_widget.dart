@@ -27,7 +27,7 @@ class SettingMenuItemWidget extends StatelessWidget {
           color: const Color.fromRGBO(235, 235, 245, 0.3),
           size: 28,
         ),
-        title: Text(title, style: Style.historyCardBodyStyle),
+        title: Text(title, style: Style.historyCardHeaderValueStyle),
         trailing: const Icon(
           Icons.chevron_right,
           color: Color.fromRGBO(235, 235, 245, 0.3),
