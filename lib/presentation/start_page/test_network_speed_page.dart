@@ -158,9 +158,8 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        const SizedBox(height: 10),
         Speedometer(
           size: 229,
           maxValue: 60,
@@ -174,6 +173,7 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
           meterColor: const Color.fromRGBO(26, 172, 93, 1),
           kimColor: const Color.fromRGBO(26, 172, 93, 0.5),
         ),
+        const SizedBox(height: 57),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -187,7 +187,7 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
             ),
           ],
         ),
-        const SizedBox(height: 30),
+        const SizedBox(height: 96),
       ],
     );
   }

@@ -13,32 +13,29 @@ class StartButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const SizedBox(),
-          TestStartButtonWidget(
-            label: "TEST",
-            onPressed: () => BlocProvider.of<PageNavigationBloc>(context).add(
-              const PageNavigationEvent.changedCurrentPage(
-                newCurrentPage: PageName.startLoadingPage,
-                newCurrentBottomNavigationIndex: 1,
-              ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        TestStartButtonWidget(
+          label: "TEST",
+          onPressed: () => BlocProvider.of<PageNavigationBloc>(context).add(
+            const PageNavigationEvent.changedCurrentPage(
+              newCurrentPage: PageName.startLoadingPage,
+              newCurrentBottomNavigationIndex: 1,
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              DisplaySpeedCardWidget(),
-              SizedBox(width: 8),
-              DisplaySpeedCardWidget(label: "UPLOAD"),
-            ],
-          ),
-          const SizedBox(),
-        ],
-      ),
+        ),
+        const SizedBox(height: 80),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            DisplaySpeedCardWidget(),
+            SizedBox(width: 8),
+            DisplaySpeedCardWidget(label: "UPLOAD"),
+          ],
+        ),
+        const SizedBox(height: 96),
+      ],
     );
   }
 }

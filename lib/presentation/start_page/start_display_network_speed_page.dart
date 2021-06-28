@@ -17,9 +17,8 @@ class StartDisplayNetworkSpeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        const SizedBox(height: 10),
         Column(
           children: [
             const Text('All Finished', style: Style.textFirstHeader),
@@ -35,8 +34,9 @@ class StartDisplayNetworkSpeedPage extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: 80),
         const SpeedCards(),
-        const SizedBox(height: 60),
+        const SizedBox(height: 96),
       ],
     );
   }

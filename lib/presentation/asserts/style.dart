@@ -161,11 +161,10 @@ class Style {
   );
 
   static const informationHeaderStyle = TextStyle(
-    fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w600,
-    fontSize: 22,
-    letterSpacing: 0.26,
-    color: Colors.white,
+    fontFamily: 'Rubik',
+    fontWeight: FontWeight.w400,
+    fontSize: 18,
+    color: Color.fromRGBO(170, 170, 170, 1),
   );
 
   static const dialogBoldButtonStyle = TextStyle(
@@ -212,20 +211,18 @@ class Style {
   );
 
   static const historyShowNameStyle = TextStyle(
-    fontFamily: "Montserrat",
+    fontFamily: "Rubik",
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
-    fontSize: 17,
-    letterSpacing: 0.43,
-    color: Color.fromRGBO(111, 113, 125, 1),
+    fontSize: 14,
+    color: Color.fromRGBO(170, 170, 170, 1),
   );
 
   static const historyShowValueStyle = TextStyle(
-    fontFamily: "Montserrat",
+    fontFamily: "Rubik",
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
-    fontSize: 17,
-    letterSpacing: 0.43,
+    fontSize: 16,
   );
 
   static const subscriptionBackgroundDecoration = BoxDecoration(
@@ -311,6 +308,12 @@ class Style {
   static const speedHistoryTableStyle = TextStyle(
     fontFamily: 'Rubik',
     fontWeight: FontWeight.w400,
+    fontSize: 22,
+  );
+
+  static const dateTimeHistoryShowStyle = TextStyle(
+    fontFamily: "Rubik",
+    fontWeight: FontWeight.w500,
     fontSize: 22,
   );
 }
