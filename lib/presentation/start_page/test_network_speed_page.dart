@@ -14,9 +14,6 @@ import 'package:speed_test/application/test_speed/test_speed_bloc.dart';
 
 import 'package:speed_test/presentation/asserts/style.dart';
 import 'package:speed_test/presentation/core/widgets/display_speed_card_widget.dart';
-import 'package:speed_test/presentation/core/widgets/download_card_title_widget.dart';
-import 'package:speed_test/presentation/core/widgets/speed_value_card_widget.dart';
-import 'package:speed_test/presentation/core/widgets/upload_card_title_widget.dart';
 
 class TestNetworkSpeedPage extends StatelessWidget {
   const TestNetworkSpeedPage();
@@ -161,40 +158,36 @@ class _DisplaySpeedometrWidgetState extends State<DisplaySpeedometrWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const SizedBox(),
+        const SizedBox(height: 10),
         Speedometer(
-          size: 250,
+          size: 229,
           maxValue: 60,
           currentValue: rate.round(),
           warningValue: rate.round(),
-          displayText: isTestingDownload ? '↓' : '↑',
+          displayText: isTestingDownload ? downloadUnitText : uploadUnitText,
           displayNumericStyle: Style.cardSpeedStyle,
           displayTextStyle: Style.speedometrDisplayTextStyle,
-          warningColor: Colors.grey[900],
-          meterColor: const Color.fromRGBO(79, 176, 167, 1),
-          kimColor: const Color.fromRGBO(79, 176, 167, 0.6),
+          backgroundColor: const Color.fromRGBO(23, 34, 48, 1),
+          warningColor: Colors.grey[600],
+          meterColor: const Color.fromRGBO(26, 172, 93, 1),
+          kimColor: const Color.fromRGBO(26, 172, 93, 0.5),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             DisplaySpeedCardWidget(
-              titleWidget: DownloadCardTitleWidget(unit: downloadUnitText),
-              bodyWidget: downloadRate == 0
-                  ? const SizedBox()
-                  : SpeedValueCardWidget(speed: downloadRate),
+              speedValue: downloadRate == 0 ? "─ ─" : downloadRate.toString(),
             ),
+            const SizedBox(width: 8),
             DisplaySpeedCardWidget(
-              titleWidget: UploadCardTitleWidget(unit: uploadUnitText),
-              bodyWidget: uploadRate == 0
-                  ? const SizedBox()
-                  : SpeedValueCardWidget(speed: uploadRate),
+              speedValue: uploadRate == 0 ? "─ ─" : uploadRate.toString(),
+              label: "UPLOAD",
             ),
           ],
         ),
-        const SizedBox(),
+        const SizedBox(height: 30),
       ],
     );
   }

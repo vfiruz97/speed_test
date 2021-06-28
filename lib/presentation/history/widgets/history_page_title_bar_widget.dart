@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:share/share.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
 import 'package:speed_test/application/page_navigation/pages_name.dart';
 import 'package:speed_test/domain/speed/speed.dart';

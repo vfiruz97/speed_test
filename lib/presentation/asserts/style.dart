@@ -29,21 +29,19 @@ class Style {
     letterSpacing: 0.37,
   );
 
-  static final startButtonDecoration = BoxDecoration(
+  static const startButtonDecoration = BoxDecoration(
     shape: BoxShape.circle,
-    color: Colors.black,
-    border: Border.all(
-      color: const Color.fromRGBO(79, 176, 167, 1),
-      width: 15,
+    gradient: RadialGradient(
+      colors: [
+        Color.fromRGBO(26, 172, 93, 1),
+        Color.fromRGBO(7, 230, 151, 1),
+      ],
     ),
-    boxShadow: const [
+    boxShadow: [
       BoxShadow(
-        color: Color.fromRGBO(79, 176, 167, 0.8),
-        blurRadius: 70,
-      ),
-      BoxShadow(
-        color: Color.fromRGBO(0, 0, 0, 0.25),
-        blurRadius: 10,
+        color: Color.fromRGBO(26, 172, 93, 1),
+        blurRadius: 25,
+        spreadRadius: 10,
       ),
     ],
   );
@@ -63,10 +61,9 @@ class Style {
   );
 
   static const textFirstHeader = TextStyle(
-    fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w600,
-    fontSize: 22,
-    letterSpacing: 0.26,
+    fontFamily: 'Rubik',
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
   );
 
   static final restartButtonDecoration = BoxDecoration(
@@ -126,10 +123,9 @@ class Style {
   );
 
   static const speedometrDisplayTextStyle = TextStyle(
-    fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w500,
-    fontSize: 30,
-    color: Color.fromRGBO(79, 176, 167, 1),
+    fontFamily: 'Rubik',
+    fontWeight: FontWeight.w300,
+    fontSize: 14,
   );
 
   static const dialogBoxDecoration = BoxDecoration(
@@ -284,5 +280,17 @@ class Style {
     fontWeight: FontWeight.w400,
     fontSize: 12,
     letterSpacing: 0.08,
+  );
+
+  static const speedValueCardStyle = TextStyle(
+    fontFamily: 'Rubik',
+    fontWeight: FontWeight.w700,
+    fontSize: 24,
+  );
+
+  static const labelCardStyle = TextStyle(
+    fontFamily: 'Rubik',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
   );
 }

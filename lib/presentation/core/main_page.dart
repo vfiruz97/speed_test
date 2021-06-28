@@ -79,7 +79,7 @@ class MainPage extends StatelessWidget {
                   builder: (context, state) {
                     switch (state.currentPageName) {
                       case PageName.startPage:
-                        return const Center(child: StartButtonWidget());
+                        return const StartButtonWidget();
                         break;
                       case PageName.startLoadingPage:
                         return BlocProvider(

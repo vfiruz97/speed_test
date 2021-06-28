@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:speed_test/presentation/asserts/style.dart';
 
 class DisplaySpeedCardWidget extends StatelessWidget {
-  final Widget titleWidget;
-  final Widget bodyWidget;
-
+  final String label;
+  final String speedValue;
   const DisplaySpeedCardWidget({
     Key key,
-    @required this.titleWidget,
-    @required this.bodyWidget,
+    this.label = "DOWNLOAD",
+    this.speedValue = "─ ─",
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: const Color.fromRGBO(18, 20, 32, 1),
-      child: Container(
-        width: 152,
-        height: 160,
-        padding: const EdgeInsets.only(top: 20, bottom: 16, left: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            titleWidget,
-            bodyWidget,
-          ],
-        ),
+    return Container(
+      width: 160,
+      height: 93,
+      decoration: BoxDecoration(
+        color: const Color.fromRGBO(16, 26, 38, 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            speedValue,
+            style: Style.speedValueCardStyle,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            label,
+            style: Style.labelCardStyle,
+          ),
+        ],
       ),
     );
   }
