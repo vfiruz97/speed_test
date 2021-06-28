@@ -14,17 +14,17 @@ class Style {
   );
 
   static const titleBarTitleStyle = TextStyle(
-    fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w700,
-    fontSize: 30,
+    fontFamily: 'BebasNeue',
+    fontWeight: FontWeight.w400,
+    fontSize: 26,
     letterSpacing: 0.37,
     color: Colors.white,
   );
 
   static const startButtonStyle = TextStyle(
-    fontFamily: 'Montserrat',
+    fontFamily: 'BebasNeue',
     fontWeight: FontWeight.w700,
-    fontSize: 30,
+    fontSize: 36,
     color: Colors.white,
     letterSpacing: 0.37,
   );
@@ -52,16 +52,6 @@ class Style {
     boxShadow: [
       BoxShadow(color: Colors.white),
     ],
-  );
-
-  static const titleBarDecoration = BoxDecoration(
-    border: Border(
-      bottom: BorderSide(
-        color: Color.fromRGBO(84, 84, 88, 0.65),
-        width: 0.5,
-      ),
-    ),
-    color: Colors.black,
   );
 
   static const cancelButtonStyle = TextStyle(
@@ -168,7 +158,7 @@ class Style {
 
   static const dialogButtonStyle = TextStyle(
     fontFamily: "SF Pro Text",
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w600,
     fontSize: 17,
     letterSpacing: 0.41,
     color: Color.fromRGBO(10, 132, 255, 1),

@@ -9,22 +9,13 @@ class SettingsPageTitleBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: 100,
       width: double.infinity,
-      decoration: Style.titleBarDecoration,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-          SizedBox(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-            child: Text(
-              'Settings',
-              style: Style.titleBarTitleStyle,
-            ),
-          ),
-        ],
+      color: const Color.fromRGBO(23, 34, 48, 1),
+      alignment: Alignment.center,
+      child: const Text(
+        'Settings',
+        style: Style.titleBarTitleStyle,
       ),
     );
   }

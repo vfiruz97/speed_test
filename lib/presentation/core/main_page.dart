@@ -63,7 +63,7 @@ class MainPage extends StatelessWidget {
                   context: context,
                   builder: (context) {
                     return const RateDialogWidget(
-                      title: 'Enjoing Speed Test & Wifi\nAnalyzer',
+                      title: 'Enjoing Speed Test & Wifi\nAnalyzer?',
                       message: "Tap a star to rate it on the App Store.",
                     );
                   },
@@ -74,7 +74,7 @@ class MainPage extends StatelessWidget {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 110),
+                padding: const EdgeInsets.only(top: 100),
                 child: BlocBuilder<PageNavigationBloc, PageNavigationState>(
                   builder: (context, state) {
                     switch (state.currentPageName) {

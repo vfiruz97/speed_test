@@ -23,12 +23,12 @@ class StartButtonWidget extends StatelessWidget {
         );
       },
       child: Container(
-        width: 200,
-        height: 200,
+        width: 189,
+        height: 189,
         alignment: Alignment.center,
         decoration: Style.startButtonDecoration,
         child: const Text(
-          'START',
+          'TEST',
           style: Style.startButtonStyle,
         ),
       ),
