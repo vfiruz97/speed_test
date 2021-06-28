@@ -170,8 +170,8 @@ class Style {
     fontFamily: "SF Pro Text",
     fontWeight: FontWeight.w400,
     fontSize: 17,
-    letterSpacing: 0.43,
-    color: Color.fromRGBO(0, 122, 255, 1),
+    letterSpacing: 0.41,
+    color: Color.fromRGBO(10, 132, 255, 1),
   );
 
   static const informationHeaderStyle = TextStyle(
@@ -186,8 +186,8 @@ class Style {
     fontFamily: "SF Pro Text",
     fontWeight: FontWeight.w600,
     fontSize: 17,
-    letterSpacing: 0.43,
-    color: Color.fromRGBO(0, 122, 255, 1),
+    letterSpacing: 0.41,
+    color: Color.fromRGBO(10, 132, 255, 1),
   );
 
   static const dialogSrightWallDecoration = BoxDecoration(

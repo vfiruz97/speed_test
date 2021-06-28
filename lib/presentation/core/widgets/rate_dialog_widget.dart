@@ -17,7 +17,7 @@ class RateDialogWidget extends StatelessWidget {
       child: Container(
         width: 270,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(30, 30, 30, 0.75),
+          color: const Color.fromRGBO(37, 37, 37, 1),
           borderRadius: BorderRadius.circular(14),
         ),
         child: Column(
@@ -33,7 +33,11 @@ class RateDialogWidget extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Text(title, style: Style.dialogTitleStyle),
+                    Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: Style.dialogTitleStyle,
+                    ),
                     const SizedBox(width: 2),
                     Text(
                       message,
@@ -94,7 +98,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 1 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(0, 122, 255, 1),
+                      color: const Color.fromRGBO(10, 132, 255, 1),
                     ),
                   ),
                 ),
@@ -111,7 +115,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 2 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(0, 122, 255, 1),
+                      color: const Color.fromRGBO(10, 132, 255, 1),
                     ),
                   ),
                 ),
@@ -128,7 +132,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 3 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(0, 122, 255, 1),
+                      color: const Color.fromRGBO(10, 132, 255, 1),
                     ),
                   ),
                 ),
@@ -145,7 +149,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 4 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(0, 122, 255, 1),
+                      color: const Color.fromRGBO(10, 132, 255, 1),
                     ),
                   ),
                 ),
@@ -162,7 +166,7 @@ class _RateStarButtonsWidgetState extends State<RateStarButtonsWidget> {
                     }),
                     child: Icon(
                       starRate >= 5 ? Icons.star : Icons.star_border_outlined,
-                      color: const Color.fromRGBO(0, 122, 255, 1),
+                      color: const Color.fromRGBO(10, 132, 255, 1),
                     ),
                   ),
                 ),

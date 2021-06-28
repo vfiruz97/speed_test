@@ -63,7 +63,7 @@ class MainPage extends StatelessWidget {
                   context: context,
                   builder: (context) {
                     return const RateDialogWidget(
-                      title: "Enjoing Speed Testing",
+                      title: 'Enjoing Speed Test & Wifi\nAnalyzer',
                       message: "Tap a star to rate it on the App Store.",
                     );
                   },
