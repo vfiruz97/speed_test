@@ -27,7 +27,6 @@ class _HistoryShowPageState extends State<HistoryShowPage> {
         children: [
           HistoryCardWidget(
             speed: _speed,
-            backgroundColor: Colors.black,
           ),
           const SizedBox(height: 24),
           const Padding(

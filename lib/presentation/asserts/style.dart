@@ -124,7 +124,7 @@ class Style {
 
   static const speedometrDisplayTextStyle = TextStyle(
     fontFamily: 'Rubik',
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.w200,
     fontSize: 14,
   );
 
@@ -292,5 +292,25 @@ class Style {
     fontFamily: 'Rubik',
     fontWeight: FontWeight.w400,
     fontSize: 14,
+  );
+
+  static const historyTitleColumnStyle = TextStyle(
+    fontFamily: 'Rubik',
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+  );
+
+  static const historyTitleRowDecoration = BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: Color.fromRGBO(41, 59, 82, 1),
+      ),
+    ),
+  );
+
+  static const speedHistoryTableStyle = TextStyle(
+    fontFamily: 'Rubik',
+    fontWeight: FontWeight.w400,
+    fontSize: 22,
   );
 }
