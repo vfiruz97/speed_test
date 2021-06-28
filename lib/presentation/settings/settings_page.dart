@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:speed_test/presentation/settings/widgets/settings_menu_item_widget.dart';
 
@@ -9,33 +8,23 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 29),
+      padding: const EdgeInsets.all(24.0),
       child: Column(
         children: [
+          const SizedBox(height: 32),
           SettingMenuItemWidget(
-            icon: SvgPicture.asset("assets/images/info.svg"),
+            title: "Privacy Policy",
+            onTap: () => null,
+          ),
+          const SizedBox(height: 16),
+          SettingMenuItemWidget(
             title: "Term of Use",
             onTap: () => null,
           ),
+          const SizedBox(height: 16),
           SettingMenuItemWidget(
-            icon: SvgPicture.asset("assets/images/checked.svg"),
-            title: "Privacy policy",
+            title: "Supprot",
             onTap: () => null,
-            backgroundColor: const Color.fromRGBO(18, 20, 32, 1),
-          ),
-          SettingMenuItemWidget(
-            icon: SvgPicture.asset("assets/images/headphones.svg"),
-            title: "Support",
-            onTap: () => null,
-          ),
-          SettingMenuItemWidget(
-            icon: SvgPicture.asset(
-              "assets/images/share.svg",
-              color: Colors.white,
-            ),
-            title: "Share the App",
-            onTap: () => null,
-            backgroundColor: const Color.fromRGBO(18, 20, 32, 1),
           ),
         ],
       ),

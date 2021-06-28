@@ -2,33 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:speed_test/presentation/asserts/style.dart';
 
 class SettingMenuItemWidget extends StatelessWidget {
-  final Widget icon;
   final String title;
   final Function onTap;
-  final Color backgroundColor;
 
   const SettingMenuItemWidget({
     Key key,
-    @required this.icon,
     @required this.title,
     @required this.onTap,
-    this.backgroundColor = Colors.black,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 72,
-      color: backgroundColor,
-      child: ListTile(
-        leading: icon,
-        title: Text(title, style: Style.historyCardHeaderValueStyle),
-        trailing: const Icon(
-          Icons.chevron_right,
-          color: Color.fromRGBO(235, 235, 245, 0.3),
-          size: 28,
+    return InkWell(
+      onTap: () => onTap(),
+      child: Container(
+        height: 40,
+        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.only(left: 16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: const Color.fromRGBO(38, 48, 60, 1),
         ),
-        onTap: () => onTap(),
+        child: Text(title, style: Style.historyCardHeaderValueStyle),
       ),
     );
   }

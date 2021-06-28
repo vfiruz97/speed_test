@@ -194,11 +194,10 @@ class Style {
   );
 
   static const historyCardHeaderValueStyle = TextStyle(
-    fontFamily: "Montserrat",
-    fontWeight: FontWeight.w400,
+    fontFamily: "Rubik",
+    fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
-    fontSize: 17,
-    letterSpacing: 0.43,
+    fontSize: 16,
   );
 
   static const historyCardFooterStyle = TextStyle(
