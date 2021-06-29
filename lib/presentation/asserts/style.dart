@@ -71,17 +71,22 @@ class Style {
     border: Border.all(color: const Color.fromRGBO(79, 176, 167, 1)),
   );
 
-  static final continueSubscribtionButtonDecoration = BoxDecoration(
-    borderRadius: BorderRadius.circular(10),
-    gradient: const LinearGradient(
-      colors: [
-        Color.fromRGBO(124, 195, 189, 1),
-        Color.fromRGBO(79, 124, 176, 1)
-      ],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-    ),
-  );
+  static final subscribtionButtonDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(7),
+      gradient: const LinearGradient(
+        colors: [
+          Color.fromRGBO(78, 57, 141, 1),
+          Color.fromRGBO(162, 109, 217, 1),
+          Color.fromRGBO(157, 106, 212, 1),
+          Color.fromRGBO(78, 57, 141, 1),
+        ],
+      ),
+      boxShadow: const [
+        BoxShadow(
+          color: Color.fromRGBO(174, 73, 221, 0.52),
+          blurRadius: 10,
+        ),
+      ]);
 
   static const restartButtonStyle = TextStyle(
     fontFamily: 'Montserrat',
@@ -92,11 +97,11 @@ class Style {
   );
 
   static const continueSubscribtionButtonStyle = TextStyle(
-    fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w600,
-    fontSize: 17,
+    fontFamily: 'BebasNeue',
+    fontWeight: FontWeight.w700,
+    fontSize: 36,
     color: Colors.white,
-    letterSpacing: 0.43,
+    letterSpacing: 0.59,
   );
 
   static const cardTitleStyle = TextStyle(
@@ -226,16 +231,16 @@ class Style {
 
   static const subscriptionBackgroundDecoration = BoxDecoration(
     image: DecorationImage(
-      image: AssetImage("assets/images/bg.png"),
+      image: AssetImage("assets/images/bg_new.png"),
       fit: BoxFit.cover,
     ),
   );
 
   static const subscriptionRestoreStyle = TextStyle(
-    fontFamily: "Montserrat",
+    fontFamily: "Rubik",
     fontWeight: FontWeight.w400,
-    fontSize: 13,
-    letterSpacing: 0.08,
+    fontSize: 15,
+    letterSpacing: 0.41,
     color: Colors.white,
   );
 
@@ -256,19 +261,19 @@ class Style {
   );
 
   static const subscriptionFreeUnlimiteStyle = TextStyle(
-    fontFamily: "Montserrat",
-    fontWeight: FontWeight.w400,
-    fontSize: 15,
-    letterSpacing: 0.23,
-    color: Color.fromRGBO(250, 250, 250, 1),
+    fontFamily: "Rubik",
+    fontWeight: FontWeight.w700,
+    fontSize: 14,
+    letterSpacing: 0.46,
+    color: Color.fromRGBO(111, 227, 19, 1),
   );
 
   static const subscriptionPrivacyStyle = TextStyle(
-    fontFamily: "Montserrat",
+    fontFamily: "Rubik",
     fontWeight: FontWeight.w400,
-    fontSize: 20,
-    letterSpacing: 0.23,
-    color: Color.fromRGBO(111, 113, 125, 1),
+    fontSize: 15,
+    letterSpacing: 0.41,
+    color: Colors.white,
   );
 
   static const bottomNavSelectedLabelStyle = TextStyle(

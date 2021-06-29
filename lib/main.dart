@@ -6,6 +6,7 @@ import 'package:speed_test/application/notification/notification_bloc.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
 import 'package:speed_test/application/rate/rate_bloc.dart';
 import 'package:speed_test/presentation/core/main_page.dart';
+import 'package:speed_test/presentation/subscription/subscription_page.dart';
 
 void main() {
   runApp(SpeedTestApp());
@@ -39,8 +40,8 @@ class SpeedTestApp extends StatelessWidget {
                 RateBloc()..add(const RateEvent.showRateDialog()),
           ),
         ],
-        // child: const SubscriptionPage(),
-        child: MainPage(),
+        child: const SubscriptionPage(),
+        //child: MainPage(),
       ),
     );
   }
