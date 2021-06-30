@@ -6,6 +6,7 @@ import 'package:speed_test/application/notification/notification_bloc.dart';
 import 'package:speed_test/application/page_navigation/page_navigation_bloc.dart';
 import 'package:speed_test/application/page_navigation/pages_name.dart';
 import 'package:speed_test/application/rate/rate_bloc.dart';
+import 'package:speed_test/application/subscribe_notification/subscribe_notification_bloc.dart';
 import 'package:speed_test/application/test_speed/test_speed_bloc.dart';
 import 'package:speed_test/domain/speed/speed.dart';
 import 'package:speed_test/infrastructure/speed/speed_repository.dart';
@@ -13,6 +14,7 @@ import 'package:speed_test/presentation/core/functions/bottom_navigation_bar.dar
 import 'package:speed_test/presentation/core/widgets/notification_dialog_widget.dart';
 import 'package:speed_test/presentation/core/widgets/rate_dialog_widget.dart';
 import 'package:speed_test/presentation/core/widgets/start_button_widget.dart';
+import 'package:speed_test/presentation/core/widgets/subscibe_dialog_widget.dart';
 import 'package:speed_test/presentation/history/history_page.dart';
 import 'package:speed_test/presentation/history/history_show/history_show_page.dart';
 import 'package:speed_test/presentation/history/history_show/widgets/settings_page_title_bar_widget.dart';
@@ -54,6 +56,23 @@ class MainPage extends StatelessWidget {
                     );
                   }
                 }
+              },
+            ),
+            BlocListener<SubscribeNotificationBloc, SubscribeNotificationState>(
+              listenWhen: (c, p) => c.title != p.title,
+              listener: (context, state) async {
+                await showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  useSafeArea: false,
+                  barrierColor: const Color.fromRGBO(0, 0, 0, 0.7),
+                  builder: (context) {
+                    return SubscibeDialogWidget(
+                      title: state.title,
+                      describtion: state.describtion,
+                    );
+                  },
+                );
               },
             ),
             BlocListener<RateBloc, RateState>(

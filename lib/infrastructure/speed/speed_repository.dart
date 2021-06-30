@@ -7,6 +7,12 @@ import 'package:speed_test/infrastructure/speed/speed_dao.dart';
 
 class SpeedRepository implements ISpeedRepository {
   final DiskCache diskCache;
+  static const maxLimit = 3;
+
+  Future<bool> pastLimit() async {
+    final speeds = await getAll();
+    return speeds.length > maxLimit;
+  }
 
   SpeedRepository() : diskCache = DiskCache();
 

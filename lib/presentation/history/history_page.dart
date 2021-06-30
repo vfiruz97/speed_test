@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:speed_test/application/subscribe_notification/subscribe_notification_bloc.dart';
 import 'package:speed_test/domain/speed/speed.dart';
 import 'package:speed_test/infrastructure/speed/speed_repository.dart';
 import 'package:speed_test/presentation/asserts/style.dart';
@@ -18,6 +20,7 @@ class _HistoryPageState extends State<HistoryPage> {
 
   @override
   void initState() {
+    checkLimit();
     getAllSpeeds();
     super.initState();
   }
@@ -25,6 +28,19 @@ class _HistoryPageState extends State<HistoryPage> {
   Future<void> getAllSpeeds() async {
     speedList = await speedRepository.getAll();
     setState(() {});
+  }
+
+  Future<void> checkLimit() async {
+    final bool pastLimit = await speedRepository.pastLimit();
+    if (pastLimit) {
+      // showing subscribtion modal window
+      BlocProvider.of<SubscribeNotificationBloc>(context).add(
+        const SubscribeNotificationEvent.show(
+          title: "Test history not available",
+          describtion: "Subscribe to a subscribtion\nto remove restrictions",
+        ),
+      );
+    }
   }
 
   @override
